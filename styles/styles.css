@@ -1,0 +1,67 @@
+body {
+  text-align: left;
+    font-size: 1.2em;
+    background-color: #ccc;
+    margin: 60px;
+    padding: 60px;
+}
+
+h1 {
+  text-align: center;
+}
+
+h6 {
+  text-align: center;
+}
+
+div {
+  margin-top: 15px;
+}
+.image-section {
+  display: flex;
+  justify-content: right;
+}
+
+.section-style {
+  margin-right: 25px;
+  margin-left: 25px;
+  background-color: white;
+}
+
+figurefront {
+  float: right;
+  width: 30%;
+  text-align: center;
+  font-style: italic;
+  font-size: smaller;
+  text-indent: 0;
+  margin: 0.5em;
+  padding: 0.5em;
+}
+
+figure {
+  display: block;
+  float: right;
+  width: 52%;
+  text-align: center;
+  font-style: italic;
+  font-size: smaller;
+  text-indent: 0;
+  margin: 0.1em;
+  padding: 0.1em;
+}
+
+
+
+lines {
+  float: center;
+  text-align: center;
+  font-style: italic;
+}
+
+
+section { 
+  display: block;
+  height: 100%;
+  padding-top: 20px;
+}
