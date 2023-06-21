@@ -5,3 +5,7 @@ How to install the r-package 'sda' from Github:
 install.packages("devtools")
 devtools::install_github("mcl868/sda")
 ```
+
+- [R course part 1](https://mcl868.github.io/causalinmisdata/)
+- [R course part 2](https://mcl868.github.io/causalinmisdata/)
+
