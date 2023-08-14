@@ -10,7 +10,7 @@
 
 
 
-<meta name="date" content="2023-07-18" />
+<meta name="date" content="2023-08-14" />
 
 <title>Extra - Using the r-package data.table</title>
 
@@ -350,22 +350,21 @@ display: none;
 
 
 <h1 class="title toc-ignore">Extra - Using the r-package data.table</h1>
-<h4 class="date">2023-07-18</h4>
+<h4 class="date">2023-08-14</h4>
 
 </div>
 
 
-<p><a href="https://mcl868.github.io/KB-R-course/frontpage.html">Go back
-to homepage</a></p>
+<p><a href="https://rcourseatkb.github.io/KB-R-course/frontpage.html">Go
+back to homepage</a></p>
 <div id="exercises-for-data-manipulation-with-data.table-in-r" class="section level2">
 <h2>Exercises for data manipulation with data.table in R</h2>
 <div id="exercise-1---summarise-and-arrange-data" class="section level3">
 <h3>Exercise 1 - Summarise and arrange data</h3>
-<ol style="list-style-type: decimal">
-<li>Load the .RData file survival::veteran into R. Define the data as
+<div id="load-the-.rdata-file-survivalveteran-into-r.-define-the-data-as-vet.-use-the-following-r-code-to-manipulate-some-variables.-then-give-a-summary-of-the-data-vet." class="section level5">
+<h5>1. Load the .RData file survival::veteran into R. Define the data as
 vet. Use the following r-code to manipulate some variables. Then, give a
-summary of the data vet.</li>
-</ol>
+summary of the data vet.</h5>
 <pre class="r"><code>library(data.table)
 vet &lt;- data.table(survival::veteran)
 
@@ -393,11 +392,11 @@ summary(vet)</code></pre>
 ##  3rd Qu.:75.00   3rd Qu.:11.000   3rd Qu.:66.00   3rd Qu.:10.00  
 ##  Max.   :99.00   Max.   :87.000   Max.   :81.00   Max.   :10.00  
 ##                                   NA&#39;s   :6</code></pre>
-<ol start="2" style="list-style-type: decimal">
-<li>Summarize the variable age using the mean() function, with and
+</div>
+<div id="summarize-the-variable-age-using-the-mean-function-with-and-without-the-option-na.rm-true.-try-also-with-the-optionna.rm-false." class="section level5">
+<h5>2. Summarize the variable age using the mean() function, with and
 without the option “na.rm = TRUE”. “Try also with the option”na.rm =
-FALSE”.</li>
-</ol>
+FALSE”.</h5>
 <pre class="r"><code>### mean default, na.rm=TRUE and na.rm = FALSE, respectively
 vet[, list(mean_age = mean(age)),]</code></pre>
 <pre><code>##    mean_age
@@ -408,11 +407,11 @@ vet[, list(mean_age = mean(age)),]</code></pre>
 <pre class="r"><code>vet[, list(mean_age = mean(age, na.rm = FALSE)),]</code></pre>
 <pre><code>##    mean_age
 ## 1:       NA</code></pre>
-<ol start="3" style="list-style-type: decimal">
-<li>Create a subset with veterans who are older than 48 years old. The
-subset need to contain only the two variables trt and celltype. Use
-head() to look at the first 10 observations.</li>
-</ol>
+</div>
+<div id="create-a-subset-with-veterans-who-are-older-than-48-years-old.-the-subset-need-to-contain-only-the-two-variables-trt-and-celltype.-use-head-to-look-at-the-first-10-observations." class="section level5">
+<h5>3. Create a subset with veterans who are older than 48 years old.
+The subset need to contain only the two variables trt and celltype. Use
+head() to look at the first 10 observations.</h5>
 <pre class="r"><code>head(vet[age &gt; 48, list(trt, celltype)], n = 10)</code></pre>
 <pre><code>##     trt celltype
 ##  1:   1 squamous
@@ -425,11 +424,11 @@ head() to look at the first 10 observations.</li>
 ##  8:   1 squamous
 ##  9:   1 squamous
 ## 10:   1 squamous</code></pre>
-<ol start="4" style="list-style-type: decimal">
-<li>The variable karno is the Karnofsky performance score. Create a new
-variable called karno50 that indicate if the score is below or above 50.
-Use head() to look at the first 10 observations.</li>
-</ol>
+</div>
+<div id="the-variable-karno-is-the-karnofsky-performance-score.-create-a-new-variable-called-karno50-that-indicate-if-the-score-is-below-or-above-50.-use-head-to-look-at-the-first-10-observations." class="section level5">
+<h5>4. The variable karno is the Karnofsky performance score. Create a
+new variable called karno50 that indicate if the score is below or above
+50. Use head() to look at the first 10 observations.</h5>
 <pre class="r"><code>head(copy(vet)[, karno50 := ifelse(karno &lt; 50, &quot;Below 50&quot;, &quot;Above 50&quot;)], n = 10)</code></pre>
 <pre><code>##     trt celltype time status karno diagtime age prior  karno50
 ##  1:   1 squamous   72      1    60        7  69     0 Above 50
@@ -442,10 +441,10 @@ Use head() to look at the first 10 observations.</li>
 ##  8:   1 squamous  110      1    80       29  NA     0 Above 50
 ##  9:   1 squamous  314      1    50       18  43     0 Above 50
 ## 10:   1 squamous  100      0    70        6  70     0 Above 50</code></pre>
-<ol start="5" style="list-style-type: decimal">
-<li>Estimate the average score of karno in the sample. Then, estimate
-the average score of karno for each celltype using by.</li>
-</ol>
+</div>
+<div id="estimate-the-average-score-of-karno-in-the-sample.-then-estimate-the-average-score-of-karno-for-each-celltype-using-by." class="section level5">
+<h5>5. Estimate the average score of karno in the sample. Then, estimate
+the average score of karno for each celltype using by.</h5>
 <pre class="r"><code># Average karno
 vet[, list(mean_karno = mean(karno))]</code></pre>
 <pre><code>##    mean_karno
@@ -457,10 +456,10 @@ vet[, list(mean_karno = mean(karno)), by = celltype]</code></pre>
 ## 2: smallcell   53.54167
 ## 3:     adeno   58.11111
 ## 4:     large   65.00000</code></pre>
-<ol start="6" style="list-style-type: decimal">
-<li>Order the data vet by the variable celltype. Let it be ascending.
-Use head() to look at the ordered dataset.</li>
-</ol>
+</div>
+<div id="order-the-data-vet-by-the-variable-celltype.-let-it-be-ascending.-use-head-to-look-at-the-ordered-dataset." class="section level5">
+<h5>6. Order the data vet by the variable celltype. Let it be ascending.
+Use head() to look at the ordered dataset.</h5>
 <pre class="r"><code>head(vet[order(celltype),], n = 10)</code></pre>
 <pre><code>##     trt celltype time status karno diagtime age prior
 ##  1:   1    adeno    8      1    20       19  61    10
@@ -473,11 +472,11 @@ Use head() to look at the ordered dataset.</li>
 ##  8:   1    adeno    3      1    30        3  43     0
 ##  9:   1    adeno   95      1    80        4  34     0
 ## 10:   2    adeno   24      1    40        2  60     0</code></pre>
-<ol start="7" style="list-style-type: decimal">
-<li>Order the data vet by the variable celltype (ascending) and the
+</div>
+<div id="order-the-data-vet-by-the-variable-celltype-ascending-and-the-variable-time-descending.-use-head-to-look-at-the-ordered-dataset." class="section level5">
+<h5>7. Order the data vet by the variable celltype (ascending) and the
 variable time (descending). Use head() to look at the ordered
-dataset.</li>
-</ol>
+dataset.</h5>
 <pre class="r"><code>head(vet[order(celltype, -time),], n = 10)</code></pre>
 <pre><code>##     trt celltype time status karno diagtime age prior
 ##  1:   2    adeno  186      1    90        3  60     0
@@ -490,6 +489,7 @@ dataset.</li>
 ##  8:   2    adeno   90      1    60       22  50    10
 ##  9:   2    adeno   84      1    80        4  62    10
 ## 10:   2    adeno   83      0    99        3  57     0</code></pre>
+</div>
 </div>
 </div>
 
