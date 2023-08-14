@@ -1,10 +1,5 @@
 # KB-R-course
-
-How to install the r-package 'sda' from Github:
-```markdown
-install.packages("devtools")
-devtools::install_github("mcl868/sda")
-```
+The R course consist of these four pages:
 
 - [Front page](https://rcourseatkb.github.io/KB-R-course/frontpage.html)
 - [R course part 1](https://rcourseatkb.github.io/KB-R-course/Html-filer/Module_base_r.html)
